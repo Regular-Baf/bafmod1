@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "bafmod1",
+	"version": "${version}",
+	"name": "Bafmaster's \"Literally Just a Katana\" Mod",
+	"description": "Bafmaster, pillar of the community, blesses your game with a pretty cool looking katana, if I do say so myself.",
+	"authors": [
+		"Bafmaster",
+		"ChatGPT"
+	],
+	"contact": {
+		"homepage": "https://github.com/Regular-Baf",
+		"sources": "https://github.com/Regular-Baf/bafmod1"
+	},
+	"license": "GNU General Public License v3.0",
+	"icon": "assets/bafmod1/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			{
+				"value": "baf.katana.Bafmod1",
+				"adapter": "kotlin"
+			}
+		],
+		"fabric-datagen": [
+			{
+				"value": "baf.katana.Bafmod1DataGenerator",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20",
+		"java": ">=17",
+		"fabric-api": "*",
+		"fabric-language-kotlin": ">=1.8.22"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
