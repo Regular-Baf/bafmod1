@@ -5,6 +5,7 @@ A pretty small and basic mod for Minecraft that adds one thing, and one thing on
 * 6 Attack damage, with a 2.5 attack speed.
 * The same durability as an iron sword, hopefully.
 * 16x16 Texture resolution.
+* Available on [Modrinth](https://modrinth.com/mod/bafmod1)!
 
 ## Requires
 * Minecraft 1.20
