@@ -8,11 +8,23 @@ import net.minecraft.util.Identifier
 import net.minecraft.registry.Registry
 import net.minecraft.item.ToolMaterials
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper
+import net.fabricmc.fabric.api.resource.ResourcePackActivationType
+import net.fabricmc.loader.api.FabricLoader
 import net.minecraft.item.ItemGroups
 import net.minecraft.registry.Registries
 
 class Bafmod1 : ModInitializer {
 	override fun onInitialize() {
+
+			FabricLoader.getInstance().getModContainer("bafmod1").ifPresent { modContainer ->
+				ResourceManagerHelper.registerBuiltinResourcePack(
+					Identifier("baf-katana-3d"),
+					modContainer,
+					ResourcePackActivationType.NORMAL
+				)
+			}
+
 		// Create a new ToolMaterial for the katana using iron as the base material
 		val katanaMaterial: ToolMaterial = object : ToolMaterial {
 			override fun getDurability() = ToolMaterials.IRON.durability
@@ -27,6 +39,7 @@ class Bafmod1 : ModInitializer {
 		val katana: Item = SwordItem(katanaMaterial, 3, -1.5f, Item.Settings())
 
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register { entries -> entries.add(katana) }
+
 
 		// Register the katana item with a unique identifier
 		Registry.register(Registries.ITEM, Identifier("bafmod1", "katana"), katana)
